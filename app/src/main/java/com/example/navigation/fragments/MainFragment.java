@@ -49,6 +49,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.view_balance_btn:
                 navController.navigate(R.id.action_mainFragment_to_viewBalanceFragment);
+                break;
         }
 
     }
