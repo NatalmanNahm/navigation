@@ -2,9 +2,24 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation"
-    app:startDestination="@id/chooseRecipientFragment">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.navigation.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_chooseRecipientFragment"
+            app:destination="@id/chooseRecipientFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_viewTransactionFragment"
+            app:destination="@id/viewTransactionFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chooseRecipientFragment"
         android:name="com.example.navigation.fragments.ChooseRecipientFragment"
@@ -13,26 +28,6 @@
         <action
             android:id="@+id/action_chooseRecipientFragment_to_specifyAmountFragment"
             app:destination="@id/specifyAmountFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/confirmationFragment"
-        android:name="com.example.navigation.fragments.ConfirmationFragment"
-        android:label="fragment_confirmation"
-        tools:layout="@layout/fragment_confirmation" />
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.navigation.fragments.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
-        <action
-            android:id="@+id/action_mainFragment_to_viewTransactionFragment"
-            app:destination="@id/viewTransactionFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_chooseRecipientFragment"
-            app:destination="@id/chooseRecipientFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_viewBalanceFragment"
-            app:destination="@id/viewBalanceFragment" />
     </fragment>
     <fragment
         android:id="@+id/specifyAmountFragment"
@@ -44,13 +39,18 @@
             app:destination="@id/confirmationFragment" />
     </fragment>
     <fragment
-        android:id="@+id/viewBalanceFragment"
-        android:name="com.example.navigation.fragments.ViewBalanceFragment"
-        android:label="fragment_view_balance"
-        tools:layout="@layout/fragment_view_balance" />
+        android:id="@+id/confirmationFragment"
+        android:name="com.example.navigation.fragments.ConfirmationFragment"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" />
     <fragment
         android:id="@+id/viewTransactionFragment"
         android:name="com.example.navigation.fragments.ViewTransactionFragment"
         android:label="fragment_view_transaction"
         tools:layout="@layout/fragment_view_transaction" />
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.example.navigation.fragments.ViewBalanceFragment"
+        android:label="fragment_view_balance"
+        tools:layout="@layout/fragment_view_balance" />
 </navigation>

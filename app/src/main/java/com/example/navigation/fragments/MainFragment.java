@@ -23,11 +23,12 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
 
         view.findViewById(R.id.send_money_btn).setOnClickListener(this);
         view.findViewById(R.id.view_transactions_btn).setOnClickListener(this);
         view.findViewById(R.id.view_balance_btn).setOnClickListener(this);
+
+        navController = Navigation.findNavController(view);
     }
 
     @Override
@@ -39,8 +40,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.send_btn:
+        switch (view.getId()){
+            case R.id.send_money_btn:
                 navController.navigate(R.id.action_mainFragment_to_chooseRecipientFragment);
                 break;
             case R.id.view_transactions_btn:
@@ -48,7 +49,6 @@ public class MainFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.view_balance_btn:
                 navController.navigate(R.id.action_mainFragment_to_viewBalanceFragment);
-                break;
         }
 
     }
