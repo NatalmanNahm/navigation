@@ -36,7 +36,7 @@ public class SpecifyAmountFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.cancel_btn:
                 getActivity().onBackPressed();
                 break;
