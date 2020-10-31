@@ -55,9 +55,9 @@ public class SpecifyAmountFragment extends Fragment implements View.OnClickListe
                     try {
                         bundle.putInt("amount", Integer.parseInt(amount));
                         bundle.putString("recipient", mRecipient);
-                        navController.navigate(R.id.action_specifyAmountFragment_to_confirmationFragment);
+                        navController.navigate(R.id.action_specifyAmountFragment_to_confirmationFragment, bundle);
                     } catch (NumberFormatException e) {
-                        Log.i("INFO", e.getCause().getMessage());
+                        Log.i("INFO", e.getMessage());
                     }
                 }
                 break;

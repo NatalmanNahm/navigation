@@ -64,7 +64,10 @@
         android:id="@+id/confirmationFragment"
         android:name="com.example.navigation.fragments.ConfirmationFragment"
         android:label="fragment_confirmation"
-        tools:layout="@layout/fragment_confirmation" />
+        tools:layout="@layout/fragment_confirmation" >
+        <argument android:name="recipient" android:defaultValue="None"/>
+        <argument android:name="amount" android:defaultValue="0" app:argType="integer"/>
+    </fragment>
     <fragment
         android:id="@+id/viewTransactionFragment"
         android:name="com.example.navigation.fragments.ViewTransactionFragment"
