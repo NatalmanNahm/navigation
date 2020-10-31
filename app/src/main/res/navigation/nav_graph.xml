@@ -50,6 +50,7 @@
         android:name="com.example.navigation.fragments.SpecifyAmountFragment"
         android:label="fragment_specify_amount"
         tools:layout="@layout/fragment_specify_amount" >
+        <argument android:name="recipient" android:defaultValue="None"/>
         <action
             android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
             app:destination="@id/confirmationFragment"

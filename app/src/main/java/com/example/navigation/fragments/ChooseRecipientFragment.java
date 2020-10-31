@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.navigation.R;
 
@@ -18,6 +20,7 @@ import com.example.navigation.R;
 public class ChooseRecipientFragment extends Fragment implements View.OnClickListener{
 
     NavController navController;
+    private EditText mRecipientInput;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -25,8 +28,8 @@ public class ChooseRecipientFragment extends Fragment implements View.OnClickLis
 
         view.findViewById(R.id.next_btn).setOnClickListener(this);
         view.findViewById(R.id.cancel_btn).setOnClickListener(this);
-
         navController = Navigation.findNavController(view);
+        mRecipientInput = view.findViewById(R.id.input_recipient);
     }
 
     @Override
@@ -41,7 +44,12 @@ public class ChooseRecipientFragment extends Fragment implements View.OnClickLis
 
         switch (view.getId()){
             case R.id.next_btn:
-                navController.navigate(R.id.action_chooseRecipientFragment_to_specifyAmountFragment);
+                String recipient = this.mRecipientInput.getText().toString();
+                if (!TextUtils.isEmpty(recipient)){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("recipient", recipient);
+                    navController.navigate(R.id.action_chooseRecipientFragment_to_specifyAmountFragment, bundle);
+                }
                 break;
             case R.id.cancel_btn:
                 getActivity().onBackPressed();
